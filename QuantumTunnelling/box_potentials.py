@@ -149,6 +149,6 @@ def update(i, fig_title, A):
 ani = FuncAnimation(fig, update, fargs = ('Initial Animation! ', 2.0), \
     interval = 100, frames = 100)
 
-ani.save('box_potentials.mp4', writer="ffmpeg")
+ani.save('box_potentials.mp4', writer="ffmpeg", dpi=300)
 
 

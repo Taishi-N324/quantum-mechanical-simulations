@@ -96,5 +96,5 @@ def update(i, fig_title, A):
 ani = FuncAnimation(fig, update, fargs = ('Initial Animation! ', 2.0), \
     interval = 100, frames = 450)
 
-ani.save('delta_potentials.mp4', writer="ffmpeg")
+ani.save('delta_potentials.mp4', writer="ffmpeg", dpi=300)
 
