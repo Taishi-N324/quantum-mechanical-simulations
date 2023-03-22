@@ -47,7 +47,7 @@ for j in range(140):
     x_coordinate = []
     for x_coor in range(-100, 100):
         # More divisions of each instead of 1000 will allow you to see the waves more accurately
-        wave_function.append(psiOscillator(x_coor/1000/1.0E-7, j/10/1.0E-15, sim_n))
+        wave_function.append(psiOscillator(x_coor/1000/1.0E-7, j/10/1.0E-15, sim_n).real)
         x_coordinate.append(x_coor/1000*1.0E-15)
     wave_functions.append(wave_function)
     x_coordinates.append(x_coordinate)
@@ -57,15 +57,15 @@ fig = plt.figure(figsize = (10, 6))
 def update(i, fig_title, A):
     if i != 0:
         plt.cla()
-
-    plt.ylim(-0.002, 0.002)
     plt.grid()
+    plt.ylim(-0.002, 0.002)
+    
     plt.title("Time evolution of a single energy in a harmonic oscillator of one-dimensional quantum mechanics n={}".format(sim_n))
     plt.scatter(x_coordinates[i], wave_functions[i], s=15, c="c")
 
 ani = FuncAnimation(fig, update, fargs = ('Initial Animation! ', 2.0), \
     interval = 100, frames = 140)
 
-ani.save('n{}.mp4'.format(sim_n), writer="ffmpeg")
+ani.save('n{}.mp4'.format(sim_n), writer="ffmpeg", dpi=300)
 
 
