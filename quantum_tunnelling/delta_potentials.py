@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 import matplotlib
+from tqdm import tqdm
 
 matplotlib.use("Agg")
 
@@ -39,7 +40,7 @@ Psi_imag_all = []
 Psi_ab_all = []
 
 
-for tn in range(ts, te):
+for tn in tqdm(range(ts, te)):
     t_real = dt * tn
     z_dz = []
     Psi_real = []
@@ -96,5 +97,5 @@ def update(i, fig_title, A):
 ani = FuncAnimation(fig, update, fargs = ('Initial Animation! ', 2.0), \
     interval = 100, frames = 450)
 
-ani.save('delta_potentials.mp4', writer="ffmpeg", dpi=300)
+ani.save('delta_potentials__.mp4', writer="ffmpeg", dpi=300)
 
